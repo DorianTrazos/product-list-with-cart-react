@@ -1,4 +1,7 @@
+import { useState } from 'react';
 import CartProduct from '../cart-product/CartProduct';
+import Modal from '../modal/Modal';
+import OrderModal from '../order-modal/OrderModal';
 import {
 	StyledCarbonNeutral,
 	StyledCart,
@@ -11,6 +14,7 @@ import {
 } from './cart.styles';
 
 const Cart = ({ cart, setCart, deleteProductFromCart }) => {
+	const [modalContent, setModalContent] = useState();
 	const isCartEmpty = cart.length === 0;
 
 	const totalProductsInCart = cart.reduce(
@@ -61,7 +65,20 @@ const Cart = ({ cart, setCart, deleteProductFromCart }) => {
 							This is a <span>carbon-neutral</span> delivery
 						</p>
 					</StyledCarbonNeutral>
-					<StyledCartButton>Confirm Order</StyledCartButton>
+					<StyledCartButton
+						onClick={() =>
+							setModalContent(
+								<OrderModal
+									cart={cart}
+									setModalContent={setModalContent}
+									setCart={setCart}
+								/>
+							)
+						}
+					>
+						Confirm Order
+					</StyledCartButton>
+					<Modal>{modalContent}</Modal>
 				</>
 			)}
 		</StyledCart>

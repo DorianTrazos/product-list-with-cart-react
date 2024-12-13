@@ -5,5 +5,6 @@ export const COLORS = {
 	lightBrown: '#ad8a85',
 	lighterBrown: '#caafa7',
 	softWhite: '#f5eeec',
-	white: '#fff'
+	white: '#fff',
+	modalWhite: '#FCF8F6'
 };
