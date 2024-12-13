@@ -18,7 +18,7 @@ const Product = ({
 }) => {
 	return (
 		<StyledProduct>
-			<StyledImageContainer>
+			<StyledImageContainer isInCart={isInCart}>
 				<picture>
 					<source media='(min-width: 1024px)' srcSet={product.imgDesktop} />
 					<source media='(min-width: 768px)' srcSet={product.imgTablet} />
