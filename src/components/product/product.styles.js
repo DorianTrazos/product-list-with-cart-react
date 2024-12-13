@@ -11,7 +11,7 @@ const StyledImageContainer = styled.div`
 	border-radius: 8px;
 	// CAMBIAR COLOR SI ESTÁ EN EL CARRITO
 	outline: 2px solid
-		${({ isInCart }) => (isInCart ? COLORS.red : 'transparent')};
+		${({ $isInCart }) => ($isInCart ? COLORS.red : 'transparent')};
 	transition: outline-color 0.3s;
 `;
 

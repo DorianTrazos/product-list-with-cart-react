@@ -3,6 +3,9 @@ import { COLORS } from '../../styles/colors';
 
 const StyledCartProduct = styled.div`
 	position: relative;
+	&:last-child {
+		margin-bottom: 24px;
+	}
 `;
 
 const StyledProductInfo = styled.div`

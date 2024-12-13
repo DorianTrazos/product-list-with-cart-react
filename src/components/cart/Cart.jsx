@@ -1,12 +1,18 @@
 import CartProduct from '../cart-product/CartProduct';
 import {
+	StyledCarbonNeutral,
 	StyledCart,
+	StyledCartButton,
 	StyledCartTitle,
+	StyledEmptyCart,
+	StyledEmptyCartImage,
 	StyledTotalOrder,
 	StyledTotalOrderContainer
 } from './cart.styles';
 
 const Cart = ({ cart, setCart, deleteProductFromCart }) => {
+	const isCartEmpty = cart.length === 0;
+
 	const totalProductsInCart = cart.reduce(
 		(acc, product) => product.quantity + acc,
 		0
@@ -22,16 +28,16 @@ const Cart = ({ cart, setCart, deleteProductFromCart }) => {
 			<StyledCartTitle>
 				Your Cart (<span>{totalProductsInCart}</span>)
 			</StyledCartTitle>
-			{cart.length === 0 && (
-				<div>
-					<img
+			{isCartEmpty && (
+				<StyledEmptyCart>
+					<StyledEmptyCartImage
 						src='./assets/images/illustration-empty-cart.svg'
 						alt='empty cart image'
 					/>
 					<p>Your added items will appear here</p>
-				</div>
+				</StyledEmptyCart>
 			)}
-			{cart.length > 0 && (
+			{!isCartEmpty && (
 				<>
 					<div>
 						{cart.map(cartItem => (
@@ -49,6 +55,13 @@ const Cart = ({ cart, setCart, deleteProductFromCart }) => {
 						<span>Total Order</span>
 						<StyledTotalOrder>${totalOrder.toFixed(2)}</StyledTotalOrder>
 					</StyledTotalOrderContainer>
+					<StyledCarbonNeutral>
+						<img src='/assets/images/icon-carbon-neutral.svg' alt='' />
+						<p>
+							This is a <span>carbon-neutral</span> delivery
+						</p>
+					</StyledCarbonNeutral>
+					<StyledCartButton>Confirm Order</StyledCartButton>
 				</>
 			)}
 		</StyledCart>

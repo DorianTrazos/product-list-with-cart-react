@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Cart from './components/cart/Cart';
 import Header from './components/header/Header';
+import MainContainer from './components/main-container/MainContainer';
 import Products from './components/products/Products';
 import { GlobalStyles } from './styles/GlobalStyles';
 
@@ -11,17 +12,19 @@ const App = () => {
 		<>
 			<GlobalStyles />
 			<Header filterActive={filterActive} setFilterActive={setFilterActive} />
-			<Products
-				filterActive={filterActive}
-				cart={cart}
-				setCart={setCart}
-				deleteProductFromCart={deleteProductFromCart}
-			/>
-			<Cart
-				cart={cart}
-				setCart={setCart}
-				deleteProductFromCart={deleteProductFromCart}
-			/>
+			<MainContainer>
+				<Products
+					filterActive={filterActive}
+					cart={cart}
+					setCart={setCart}
+					deleteProductFromCart={deleteProductFromCart}
+				/>
+				<Cart
+					cart={cart}
+					setCart={setCart}
+					deleteProductFromCart={deleteProductFromCart}
+				/>
+			</MainContainer>
 		</>
 	);
 };
