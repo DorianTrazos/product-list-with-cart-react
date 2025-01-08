@@ -1,7 +1,7 @@
 # PRODUCT LIST WITH CART
 
 <p>
-    <img src="" alt="Imagen del proyecto">
+    <img src="https://raw.githubusercontent.com/DorianTrazos/product-list-with-cart-react/refs/heads/main/design/desktop-design-order-confirmation.jpg" alt="Imagen del proyecto">
 </p>
 
 ## Vista en vivo
